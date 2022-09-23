@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SentimentAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MongoDbApplication.class, args);
+		SpringApplication.run(SentimentAppApplication.class, args);
 	}
 
 }
