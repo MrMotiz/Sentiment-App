@@ -21,7 +21,7 @@ public class Text {
     private double positiveSentimentPercentage;
     private double negativeSentimentPercentage;
     private double neutralSentimentPercentage;
-
+    private String message;
     private LocalDateTime created;
 
     @ManyToOne
