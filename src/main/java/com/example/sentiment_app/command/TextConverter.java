@@ -9,7 +9,7 @@ public class TextConverter {
                 .negativeSentimentPercentage(text.getNegativeSentimentPercentage())
                 .positiveSentimentPercentage(text.getPositiveSentimentPercentage())
                 .neutralSentimentPercentage(text.getNeutralSentimentPercentage())
-                .messages(text.getMessage())
+                .message(text.getMessage())
                 .created(text.getCreated())
                 .build();
 
@@ -19,7 +19,7 @@ public class TextConverter {
                 .negativeSentimentPercentage(createTextDto.getNegativeSentimentPercentage())
                 .positiveSentimentPercentage(createTextDto.getPositiveSentimentPercentage())
                 .neutralSentimentPercentage(createTextDto.getNegativeSentimentPercentage())
-                .message(createTextDto.getMessages())
+                .message(createTextDto.getMessage())
                 .created(createTextDto.getCreated())
                 .build();
     }

@@ -1,5 +1,9 @@
 package com.example.sentiment_app.service;
 
+import com.example.sentiment_app.command.CreateTextDto;
+import com.example.sentiment_app.command.TextConverter;
+import com.example.sentiment_app.model.Text;
+import com.example.sentiment_app.repository.TextRepository;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;

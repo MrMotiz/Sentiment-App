@@ -1,5 +1,8 @@
 package com.example.sentiment_app.service;
 
+import com.example.sentiment_app.command.CreateTextDto;
+import com.example.sentiment_app.repository.UserRepository;
+
 import java.net.URI;
 import java.net.http.HttpRequest;
 

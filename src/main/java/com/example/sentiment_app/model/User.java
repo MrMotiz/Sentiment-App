@@ -25,6 +25,7 @@ public class User {
     private String city;
     Gender gender;
 
+
     @OneToMany(mappedBy = "user")
     private List<Text> text;
 }

@@ -1,5 +1,7 @@
 package com.example.sentiment_app.controller;
 
+import com.example.sentiment_app.command.CreateTextDto;
+import com.example.sentiment_app.command.CreateUserDto;
 import com.example.sentiment_app.service.SentimentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
