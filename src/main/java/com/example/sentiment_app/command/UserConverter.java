@@ -14,16 +14,7 @@ public class UserConverter {
                 .gender(user.getGender())
                 .build();
     }
-    public static User convertToEntity(UserDto userDto) {
-        return User.builder()
-                .id(userDto.getId())
-                .name(userDto.getName())
-                .username(userDto.getUsername())
-                .age(userDto.getAge())
-                .city(userDto.getCity())
-                .gender(userDto.getGender())
-                .build();
-    }
+
     public static User convertCreateUserDtoToEntity(CreateUserDto createUserDto) {
         return User.builder()
                 .name(createUserDto.getName())

@@ -14,6 +14,6 @@ public class CreateTextDto {
     private double positiveSentimentPercentage;
     private double negativeSentimentPercentage;
     private double neutralSentimentPercentage;
-    private String messages;
+    private String message;
     private LocalDateTime created;
 }
