@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    @RequestMapping("/hello")
+    @RequestMapping("/")
     public String hello() {
         return "Hello World1";
     }
