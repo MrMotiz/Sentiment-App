@@ -18,6 +18,15 @@ public class SentimentController {
         this.sentimentService = sentimentService;
     }
 
+    @PostMapping ("/createUser")
+    public ResponseEntity<?> createUser(@RequestBody CreateUserDto userDto, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            List<String> errors = bindingResult.getAllErrors().stream().map(e->e.getDefaultMessage()).toList();
+            return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(sentimentService.createText(userDto), HttpStatus.CREATED);
+    }
+
     @PostMapping ("/{id}/text")
     public ResponseEntity<?> createText(@PathVariable Integer id, @RequestBody CreateTextDto textDto, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
