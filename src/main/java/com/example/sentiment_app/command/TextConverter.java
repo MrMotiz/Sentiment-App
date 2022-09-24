@@ -2,10 +2,12 @@ package com.example.sentiment_app.command;
 
 import com.example.sentiment_app.model.Text;
 
+import java.net.http.HttpResponse;
+
 public class TextConverter {
 
-    public static CreateTextDto textDto (Text text) {
-        return CreateTextDto.builder()
+    public static TextDto convertToDto (Text text, HttpResponse<String> response) {
+        return TextDto.builder()
                 .negativeSentimentPercentage(text.getNegativeSentimentPercentage())
                 .positiveSentimentPercentage(text.getPositiveSentimentPercentage())
                 .neutralSentimentPercentage(text.getNeutralSentimentPercentage())
@@ -13,8 +15,9 @@ public class TextConverter {
                 .created(text.getCreated())
                 .build();
 
+
     }
-    public static Text toEntity (CreateTextDto createTextDto) {
+    public static Text convertCreateTextDtoToEntity (CreateTextDto createTextDto) {
         return Text.builder()
                 .negativeSentimentPercentage(createTextDto.getNegativeSentimentPercentage())
                 .positiveSentimentPercentage(createTextDto.getPositiveSentimentPercentage())
