@@ -27,4 +27,6 @@ public class CreateTextDto {
     private LocalDateTime created;
 
 
+    public void setUser(User orElseThrow) {
+    }
 }
