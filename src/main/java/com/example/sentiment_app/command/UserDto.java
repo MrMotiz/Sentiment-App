@@ -8,6 +8,7 @@ import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+
 @Builder
 @Data
 public class UserDto {

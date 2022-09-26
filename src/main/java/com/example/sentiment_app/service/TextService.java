@@ -8,7 +8,4 @@ public interface TextService {
 
     Text getTextById(Integer id);
 
-    Text addText(Text text);
-
-    Text addTextToUser(Text text, User user);
 }
