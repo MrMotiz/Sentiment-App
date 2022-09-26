@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 
 public class TextConverter {
 
-    public static TextDto convertToDto (Text text, HttpResponse<String> response) {
+    public static TextDto convertToDto (Text text) {
         return TextDto.builder()
                 .negativeSentimentPercentage(text.getNegativeSentimentPercentage())
                 .positiveSentimentPercentage(text.getPositiveSentimentPercentage())
