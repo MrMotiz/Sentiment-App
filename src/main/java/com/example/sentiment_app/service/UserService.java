@@ -15,13 +15,6 @@ public interface UserService {
 
     UserDto addUser(CreateUserDto createUser);
 
-    TextDto addTextToUser(CreateUserDto createUser, Integer id);
-
     TextDto addTextToUser(CreateTextDto createTextDto, Integer id);
-
-    void deleteUserList();
-
-    void deleteTextById(Integer textId);
-
 
 }
