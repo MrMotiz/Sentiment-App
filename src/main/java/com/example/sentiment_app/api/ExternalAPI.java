@@ -34,6 +34,5 @@ public class ExternalAPI {
             .build();
 
     HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
-//
 
 }
