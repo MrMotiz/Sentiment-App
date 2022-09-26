@@ -13,6 +13,9 @@ public class ExternalAPI {
 
     private Text text;
     public ExternalAPI() throws IOException, InterruptedException {
+        text.setMessage(getResponse.);
+
+
     }
         HttpRequest postRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://text-analysis12.p.rapidapi.com/article-extraction/api/v1.3"))
@@ -20,9 +23,10 @@ public class ExternalAPI {
                 .POST(HttpRequest.BodyPublishers.ofString(text.getMessage()))
                 .build();
 
-        HttpClient httpClient = new HttpClient();
+        HttpClient httpClient; //= new HttpClient();
 
         HttpResponse<String> postResponse = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
+
 
     HttpRequest getRequest = HttpRequest.newBuilder()
             .uri(URI.create("https://text-analysis12.p.rapidapi.com/article-extraction/api/v1.3/"+ text.getId()))
