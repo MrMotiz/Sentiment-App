@@ -50,15 +50,6 @@ public class UserServiceImpl implements UserService {
         return TextConverter.convertToDto(text);
     }
 
-    @Override
-    public void deleteUserList() {
-        userRepository.deleteAll();
-
-    }
-
-    @Override
-    public void deleteTextById(Integer textId) {
-        textServiceImpl.deleteTextById(textId);
 
     }
 
@@ -73,4 +64,3 @@ public class UserServiceImpl implements UserService {
     } */
 
 
-}
