@@ -4,7 +4,7 @@ import com.example.sentiment_app.command.CreateTextDto;
 import com.example.sentiment_app.command.TextDto;
 import com.example.sentiment_app.repository.UserRepository;
 
-public class SentimentService {
+public class UserServiceImpl {
 
 
     private UserRepository userRepository;
