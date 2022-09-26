@@ -1,11 +1,14 @@
 package com.example.sentiment_app.controller;
 
+import com.example.sentiment_app.command.CreateTextDto;
+import com.example.sentiment_app.command.CreateUserDto;
 import com.example.sentiment_app.service.SentimentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
@@ -43,7 +46,7 @@ public class SentimentController {
 
 
 
-/*
+
 
 
 

@@ -2,6 +2,7 @@ package com.example.sentiment_app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -21,7 +22,7 @@ public class Text {
     private double positiveSentimentPercentage;
     private double negativeSentimentPercentage;
     private double neutralSentimentPercentage;
-
+    private String message;
     private LocalDateTime created;
 
     @ManyToOne
