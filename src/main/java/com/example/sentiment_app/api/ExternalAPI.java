@@ -7,7 +7,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
+/*
 public class ExternalAPI {
 
 
@@ -36,3 +36,5 @@ public class ExternalAPI {
     HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
 
 }
+
+ */
