@@ -1,10 +1,8 @@
 package com.example.sentiment_app.command;
 
-import com.example.sentiment_app.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.apache.logging.log4j.message.Message;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,13 +14,13 @@ import java.time.LocalDateTime;
 public class CreateTextDto {
 
     @NotNull
-    private double positiveSentimentPercentage;
+    private double pos;
     @NotNull
-    private double negativeSentimentPercentage;
+    private double neg;
     @NotNull
-    private double neutralSentimentPercentage;
+    private double neu;
     @NotBlank(message = "Please write your thoughts")
-    private String message;
+    private String sentence;
     @NotNull
     private LocalDateTime created;
 
