@@ -7,34 +7,23 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-/*
+
 public class ExternalAPI {
+    private Text text = new Text();
 
+    public String postRequest(String text) throws IOException, InterruptedException {
 
-    private Text text;
-    public ExternalAPI() throws IOException, InterruptedException {
-        text.setMessage(getResponse.);
-
-
-    }
-        HttpRequest postRequest = HttpRequest.newBuilder()
-                .uri(URI.create("https://text-analysis12.p.rapidapi.com/article-extraction/api/v1.3"))
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1"))
+                .header("content-type", "application/json")
                 .header("X-RapidAPI-Key", "95bd6ffc51mshd854e2b69156aaap139628jsn391b570980b5")
-                .POST(HttpRequest.BodyPublishers.ofString(text.getMessage()))
+                .header("X-RapidAPI-Host", "text-analysis12.p.rapidapi.com")
+                .method("POST", HttpRequest.BodyPublishers.ofString("{\"language\":\"english\",\"text\":\"" + text + "\"}"))
                 .build();
 
-        HttpClient httpClient; //= new HttpClient();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-        HttpResponse<String> postResponse = httpClient.send(postRequest, HttpResponse.BodyHandlers.ofString());
+        return response.body();
 
-
-    HttpRequest getRequest = HttpRequest.newBuilder()
-            .uri(URI.create("https://text-analysis12.p.rapidapi.com/article-extraction/api/v1.3/"+ text.getId()))
-            .header("X-RapidAPI-Key", "95bd6ffc51mshd854e2b69156aaap139628jsn391b570980b5")
-            .build();
-
-    HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
-
+    }
 }
-
- */

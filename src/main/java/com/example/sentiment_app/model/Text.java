@@ -16,13 +16,14 @@ import java.time.LocalDateTime;
 
 public class Text {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.AUTO)
    private Integer id;
 
-    private double positiveSentimentPercentage;
-    private double negativeSentimentPercentage;
-    private double neutralSentimentPercentage;
-    private String message;
+    private double pos;
+    private double neg;
+    private double neu;
+    private String sentence;
+    private String sentiment;
     private LocalDateTime created;
 
     @ManyToOne

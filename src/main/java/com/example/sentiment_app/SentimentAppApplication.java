@@ -12,7 +12,9 @@ import java.net.http.HttpResponse;
 @SpringBootApplication
 public class SentimentAppApplication {
 	public static void main(String[] args) throws IOException, InterruptedException {
-		HttpRequest request = HttpRequest.newBuilder()
+		SpringApplication.run(SentimentAppApplication.class,args);
+
+		/*HttpRequest request = HttpRequest.newBuilder()
 				.uri(URI.create("https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1"))
 				.header("content-type", "application/json")
 				.header("X-RapidAPI-Key", "95bd6ffc51mshd854e2b69156aaap139628jsn391b570980b5")
@@ -22,6 +24,8 @@ public class SentimentAppApplication {
 		HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
 		System.out.println(response.body());
+
+		 */
 
 	}
 
