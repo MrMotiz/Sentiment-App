@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 @Data
@@ -14,13 +13,13 @@ public class TextDto {
     @NotNull
     private Integer id;
     @NotNull
-    private double positiveSentimentPercentage;
+    private double pos;
     @NotNull
-    private double negativeSentimentPercentage;
+    private double neg;
     @NotNull
-    private double neutralSentimentPercentage;
+    private double neu;
     @NotBlank
-    private String message;
+    private String sentence;
     @NotNull
     private LocalDateTime created;
 }
