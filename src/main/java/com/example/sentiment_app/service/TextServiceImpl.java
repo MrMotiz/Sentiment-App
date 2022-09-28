@@ -60,11 +60,11 @@ public class TextServiceImpl implements TextService {
 
         try {
             //externalApi.postRequest(textDto.toString());
-            apiHandler.APIHandler(textDto.toString());
+            text = apiHandler.APIHandler(textDto.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //text = textRepository.save(text);
+        text = textRepository.save(text);
         return TextConverter.convertToDto(textRepository.save(text));
     }
 
