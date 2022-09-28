@@ -21,15 +21,16 @@ import java.util.List;
 public class TextServiceImpl implements TextService {
 
     private TextRepository textRepository;
+
     private UserRepository userRepository;
+
     private ExternalAPI externalApi;
     @Autowired
     private APIHandler apiHandler;
     private Text text;
 
-    public TextServiceImpl(TextRepository textRepository, UserRepository userRepository, ExternalAPI externalApi) {
+    public TextServiceImpl(TextRepository textRepository, ExternalAPI externalApi) {
         this.textRepository = textRepository;
-        this.userRepository = userRepository;
         this.externalApi = externalApi;
        // this.apiHandler = apiHandler;
 
@@ -57,14 +58,13 @@ public class TextServiceImpl implements TextService {
     @Override
     public TextDto createText(CreateTextDto textDto ) {
         text = TextConverter.convertCreateTextDtoToEntity(textDto);
-
         try {
-            //externalApi.postRequest(textDto.toString());
             text = apiHandler.APIHandler(textDto.toString());
+            //externalApi.postRequest(textDto.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        text = textRepository.save(text);
+        //text = textRepository.save(text);
         return TextConverter.convertToDto(textRepository.save(text));
     }
 

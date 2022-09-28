@@ -2,6 +2,7 @@ package com.example.sentiment_app.api;
 
 import com.example.sentiment_app.command.TextDto;
 import com.example.sentiment_app.model.Text;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,26 @@ public class APIHandler {
 
     public Text APIHandler(String message) throws IOException, InterruptedException, JSONException {
 
-        JSONObject myJsonObj = new JSONObject(api.postRequest(message));
 
-        text.setSentiment(myJsonObj.getString("sentiment"));
+        JSONObject APIInfo = new JSONObject(api.postRequest(message));
 
-        String sentimentList = myJsonObj.getString("aggregate_sentiment");
+        text.setSentiment(APIInfo.getString("sentiment"));
 
-        JSONObject aggregate = new JSONObject(sentimentList);
+        JSONArray newObject= new JSONArray(APIInfo.getString("sentiment_list"));
+
+        for (String v: newObject.toString().split(",")) {
+            if(v.contains("sentence=")){
+                text.setSentence(v.substring(10));
+                break;
+            }
+        }
+
+        JSONObject aggregate = new JSONObject(APIInfo.getString("aggregate_sentiment"));
 
         text.setNeg(Double.parseDouble(aggregate.getString("neg")));
         text.setNeu(Double.parseDouble(aggregate.getString("neu")));
         text.setPos(Double.parseDouble(aggregate.getString("pos")));
+
 
         return text;
 

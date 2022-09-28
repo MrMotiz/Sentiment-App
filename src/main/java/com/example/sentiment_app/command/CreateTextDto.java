@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -19,8 +20,7 @@ public class CreateTextDto {
     private double neu;
     @NotBlank(message = "Please write your thoughts")
     private String sentence;
-    //@NotNull
-    //private LocalDateTime created;
+    private LocalDate date;
     private String sentiment;
     private User user;
 

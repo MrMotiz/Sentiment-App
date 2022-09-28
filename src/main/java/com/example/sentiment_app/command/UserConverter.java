@@ -11,6 +11,19 @@ public class UserConverter {
                 .age(user.getAge())
                 .city(user.getCity())
                 .gender(user.getGender())
+                //.sentence(user.getSentence().stream().map(TextConverter::convertToDto).toList())
+                .build();
+    }
+
+
+    public static User convertUserDtoToEntity(UserDto userDto) {
+        return User.builder()
+                .firstName(userDto.getFirstName())
+                .lastName(userDto.getLastName())
+                .age(userDto.getAge())
+                .city(userDto.getCity())
+                .gender(userDto.getGender())
+                //.sentences(userDto.getSentences().stream().map(TextConverter::convertTextToDtoToEntity).toList())
                 .build();
     }
 
@@ -21,7 +34,19 @@ public class UserConverter {
                 .age(createUserDto.getAge())
                 .city(createUserDto.getCity())
                 .gender(createUserDto.getGender())
+                .sentence(createUserDto.getSentence())
                 .build();
 
+    }
+
+    public static UserDto convertToDtoWithSentence(User user){
+        return UserDto.builder()
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .age(user.getAge())
+                .city(user.getCity())
+                .gender(user.getGender())
+                .sentence(user.getSentence().stream().map(e-> TextConverter.convertToDto(e)).toList())
+                .build();
     }
 }
