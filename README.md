@@ -1,5 +1,5 @@
 <h1 align="center"> Sentiment Analysis </h1>
----
+
 
 ### Table of contents
 
@@ -36,12 +36,14 @@ In order to use this application, it is necessary to follow the specific order:
 - Run the server
 
 
-- Create a new user account according to the specified parameters (First name, Last name, age, city, gender),which will be stored in the database
+- Create a new user account according to the specified parameters (First name, Last name, age, city, gender), which will be stored in the database
+
 ![img_6.png](img_6.png)
 
 
 
 - Type your text
+
  ![img_1.png](img_1.png)
 
 
