@@ -46,7 +46,7 @@ public class UserConverter {
                 .age(user.getAge())
                 .city(user.getCity())
                 .gender(user.getGender())
-                .sentence(user.getSentence().stream().map(TextConverter::convertToDto).toList())
+                .sentence(user.getSentence().stream().map(e-> TextConverter.convertToDto(e)).toList())
                 .build();
     }
 }

@@ -44,7 +44,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public TextDto createText(Integer id, CreateTextDto textDto) {
         textDto.setUser(userRepository.findById(id).orElseThrow());
-
         return textServiceImpl.createText(textDto);
     }
 
@@ -61,15 +60,3 @@ public class UserServiceImpl implements UserService {
 
     }
 }
-
-
-
-
-/*
-    public TextDto createText(Integer id, CreateTextDto textDto){
-        textDto.setUser(userRepository.findById(id).orElseThrow());
-        return textServiceImpl.createText(textDto);
-
-    } */
-
-

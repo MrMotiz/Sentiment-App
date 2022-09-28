@@ -38,6 +38,7 @@ public class TextConverter {
                 .sentence(createTextDto.getSentence())
                 .sentiment(createTextDto.getSentiment())
                 .date(createTextDto.getDate())
+                .user(createTextDto.getUser())
                 .build();
     }
 }
