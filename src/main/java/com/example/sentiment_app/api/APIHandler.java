@@ -23,15 +23,17 @@ public class APIHandler {
     public Text APIHandler(String message) throws IOException, InterruptedException, JSONException {
 
 
+
         JSONObject APIInfo = new JSONObject(api.postRequest(message));
 
         text.setSentiment(APIInfo.getString("sentiment"));
 
         JSONArray newObject= new JSONArray(APIInfo.getString("sentiment_list"));
-
+        System.out.println(newObject);
         for (String v: newObject.toString().split(",")) {
-            if(v.contains("sentence=")){
-                text.setSentence(v.substring(10));
+            if(v.contains("sentence")){
+                System.out.println(v);
+                text.setSentence(v.substring(14));
                 break;
             }
         }

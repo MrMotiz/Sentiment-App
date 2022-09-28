@@ -47,13 +47,14 @@ public class UserServiceImpl implements UserService {
         return textServiceImpl.createText(textDto);
     }
 
+    @Override
+    public List<TextDto> findAllTexts(Integer id) {
 
-    public List<TextDto> findALlTexts(Integer id) {
         User user = userRepository.findById(id).orElseThrow();
         return textServiceImpl.findAllTexts(user);
     }
 
-
+    @Override
     public UserDto findSpecificUser(Integer id) {
         User user = userRepository.findById(id).orElseThrow();
         return UserConverter.convertToDtoWithSentence(user);

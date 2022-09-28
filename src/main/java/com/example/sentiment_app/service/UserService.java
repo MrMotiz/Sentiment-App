@@ -17,4 +17,9 @@ public interface UserService {
 
 
     TextDto createText(Integer id, CreateTextDto textDto);
+
+    UserDto findSpecificUser(Integer id);
+    List<TextDto> findAllTexts(Integer id);
+
+
 }

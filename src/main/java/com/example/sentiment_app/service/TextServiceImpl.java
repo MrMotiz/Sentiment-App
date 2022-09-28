@@ -22,8 +22,6 @@ public class TextServiceImpl implements TextService {
 
     private TextRepository textRepository;
 
-    private UserRepository userRepository;
-
     private ExternalAPI externalApi;
     @Autowired
     private APIHandler apiHandler;
@@ -32,21 +30,8 @@ public class TextServiceImpl implements TextService {
     public TextServiceImpl(TextRepository textRepository, ExternalAPI externalApi) {
         this.textRepository = textRepository;
         this.externalApi = externalApi;
-       // this.apiHandler = apiHandler;
 
     }
-
-
-    /*public TextDto createText(CreateTextDto textDto){
-        Text text = TextConverter.convertCreateTextDtoToEntity(textDto);
-        text = textRepository.save(text);
-        HttpResponse<String> response = HttpClient.newHttpClient().send(text.getMessage());
-        return TextConverter.convertToDto(text);
-    }*/
-
-
-
-
 
     @Override
     public Text getTextById(Integer id) {
@@ -56,25 +41,20 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
-    public TextDto createText(CreateTextDto textDto ) {
+    public TextDto createText(CreateTextDto textDto) {
         text = TextConverter.convertCreateTextDtoToEntity(textDto);
         try {
             text = apiHandler.APIHandler(textDto.toString());
-            //externalApi.postRequest(textDto.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //text = textRepository.save(text);
         return TextConverter.convertToDto(textRepository.save(text));
     }
 
-
+    @Override
     public List<TextDto> findAllTexts(User user) {
         List<TextDto> text = textRepository.findAll().stream().map(e->TextConverter.convertToDto(e)).toList();
         return text;
-    }
-    public List<Text> findAllText(User user) {
-        return textRepository.findAll();
     }
 
 }
