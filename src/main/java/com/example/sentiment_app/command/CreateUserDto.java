@@ -1,12 +1,15 @@
 package com.example.sentiment_app.command;
 
 import com.example.sentiment_app.model.Gender;
+import com.example.sentiment_app.model.Text;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Builder
 @Data
@@ -22,6 +25,8 @@ public class CreateUserDto {
     private String city;
     @NotBlank (message = "Please select gender")
     private String gender;
+    @NotNull
+    private List<Text> sentence;
 
 
 }

@@ -54,9 +54,11 @@ public class UserServiceImpl implements UserService {
         return textServiceImpl.findAllTexts(user);
     }
 
-    public List<Text> findALlText(Integer id) {
+
+    public UserDto findSpecificUser(Integer id) {
         User user = userRepository.findById(id).orElseThrow();
-        return textServiceImpl.findAllText(user);
+        return UserConverter.convertToDtoWithSentence(user);
+
     }
 }
 

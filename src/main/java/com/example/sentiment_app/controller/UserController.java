@@ -3,6 +3,7 @@ package com.example.sentiment_app.controller;
 import com.example.sentiment_app.command.CreateTextDto;
 import com.example.sentiment_app.command.CreateUserDto;
 import com.example.sentiment_app.command.TextDto;
+import com.example.sentiment_app.command.UserDto;
 import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -46,9 +47,12 @@ public class UserController {
         return new ResponseEntity<>(userServiceImpl.findALlTexts(id), HttpStatus.OK);
     }
 
-    @GetMapping ("/{id}/texts")
-    public ResponseEntity<List<Text>> findAllText(@PathVariable Integer id){
-        return new ResponseEntity<>(userServiceImpl.findALlText(id), HttpStatus.OK);
+    @GetMapping ("/{id}")
+    public ResponseEntity<UserDto> findSpecificUser(@PathVariable Integer id){
+        if(id==null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(userServiceImpl.findSpecificUser(id), HttpStatus.FOUND);
     }
 
 

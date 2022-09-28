@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "user")
 @Component
 public class Text {
     @Id
@@ -25,7 +25,7 @@ public class Text {
     private double neu;
     private String sentence;
     private String sentiment;
-    //private LocalDateTime created;
+    private LocalDate date= java.time.LocalDate.now();
 
     @ManyToOne
     @JsonIgnore
