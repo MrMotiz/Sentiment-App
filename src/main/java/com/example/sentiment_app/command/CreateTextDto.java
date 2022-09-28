@@ -1,5 +1,6 @@
 package com.example.sentiment_app.command;
 
+import com.example.sentiment_app.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,16 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class CreateTextDto {
 
-    @NotNull
     private double pos;
-    @NotNull
     private double neg;
-    @NotNull
     private double neu;
     @NotBlank(message = "Please write your thoughts")
     private String sentence;
-    @NotNull
-    private LocalDateTime created;
-
+    //@NotNull
+    //private LocalDateTime created;
+    private String sentiment;
+    private User user;
 
 }

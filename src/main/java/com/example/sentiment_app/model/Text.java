@@ -3,6 +3,7 @@ package com.example.sentiment_app.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,18 +14,18 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(exclude = "user")
-
+@Component
 public class Text {
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private double pos;
     private double neg;
     private double neu;
     private String sentence;
     private String sentiment;
-    private LocalDateTime created;
+    //private LocalDateTime created;
 
     @ManyToOne
     @JsonIgnore

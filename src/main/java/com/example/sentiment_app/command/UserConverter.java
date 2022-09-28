@@ -6,9 +6,8 @@ public class UserConverter {
 
     public static UserDto convertToDto(User user) {
         return UserDto.builder()
-                .id(user.getId())
-                .name(user.getName())
-                .username(user.getUsername())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .age(user.getAge())
                 .city(user.getCity())
                 .gender(user.getGender())
@@ -17,8 +16,8 @@ public class UserConverter {
 
     public static User convertCreateUserDtoToEntity(CreateUserDto createUserDto) {
         return User.builder()
-                .name(createUserDto.getName())
-                .username(createUserDto.getUsername())
+                .firstName(createUserDto.getFirstName())
+                .lastName(createUserDto.getLastName())
                 .age(createUserDto.getAge())
                 .city(createUserDto.getCity())
                 .gender(createUserDto.getGender())

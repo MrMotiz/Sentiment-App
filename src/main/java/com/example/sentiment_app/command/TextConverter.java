@@ -10,7 +10,8 @@ public class TextConverter {
                 .pos(text.getPos())
                 .neu(text.getNeu())
                 .sentence(text.getSentence())
-                .created(text.getCreated())
+                .sentiment(text.getSentiment())
+                //.created(text.getCreated())
                 .build();
 
 
@@ -21,7 +22,8 @@ public class TextConverter {
                 .pos(createTextDto.getPos())
                 .neu(createTextDto.getNeg())
                 .sentence(createTextDto.getSentence())
-                .created(createTextDto.getCreated())
+                .sentiment(createTextDto.getSentiment())
+                //.created(createTextDto.getCreated())
                 .build();
     }
 }

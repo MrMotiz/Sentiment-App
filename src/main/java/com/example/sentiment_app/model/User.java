@@ -16,14 +16,14 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
-    private String username;
-    private String age;
+    private String firstName;
+    private String lastName;
+    private Integer age;
     private String city;
-    Gender gender;
+    private String gender;
 
 
     @OneToMany(mappedBy = "user")

@@ -13,8 +13,8 @@ public interface UserService {
 
     UserDto getUserById(Integer id);
 
-    UserDto addUser(CreateUserDto createUser);
+    UserDto createUser(CreateUserDto createUser);
 
-    TextDto addTextToUser(CreateTextDto createTextDto, Integer id);
 
+    TextDto createText(Integer id, CreateTextDto textDto);
 }

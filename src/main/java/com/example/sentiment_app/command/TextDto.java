@@ -10,16 +10,16 @@ import java.time.LocalDateTime;
 @Builder
 public class TextDto {
 
-    @NotNull
-    private Integer id;
-    @NotNull
+
+
     private double pos;
-    @NotNull
+
     private double neg;
-    @NotNull
+
     private double neu;
     @NotBlank
     private String sentence;
-    @NotNull
-    private LocalDateTime created;
+    private String sentiment;
+    //@NotNull
+    //private LocalDateTime created;
 }
