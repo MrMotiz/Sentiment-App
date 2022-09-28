@@ -35,24 +35,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto addUser(CreateUserDto createUserDto) {
+    public UserDto createUser(CreateUserDto createUserDto) {
         User user = UserConverter.convertCreateUserDtoToEntity(createUserDto);
-        userRepository.save(user);
+        user = userRepository.save(user);
         return UserConverter.convertToDto(user);
     }
 
     @Override
-    public TextDto addTextToUser(CreateTextDto createTextDto, Integer id) {
-        User user = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User " + id + " not found. Cannot add text."));
+    public TextDto createText(Integer id, CreateTextDto textDto) {
+        textDto.setUser(userRepository.findById(id).orElseThrow());
 
-        Text text = TextConverter.convertCreateTextDtoToEntity(createTextDto);
-
-        textServiceImpl.addTextToUser(text, user);
-        return TextConverter.convertToDto(text);
+        return textServiceImpl.createText(textDto);
     }
 
 
+    public List<TextDto> findALlTexts(Integer id) {
+        User user = userRepository.findById(id).orElseThrow();
+        return textServiceImpl.findAllTexts(user);
     }
+
+    public List<Text> findALlText(Integer id) {
+        User user = userRepository.findById(id).orElseThrow();
+        return textServiceImpl.findAllText(user);
+    }
+}
 
 
 
