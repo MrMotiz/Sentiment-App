@@ -4,7 +4,6 @@ import com.example.sentiment_app.command.CreateTextDto;
 import com.example.sentiment_app.command.CreateUserDto;
 import com.example.sentiment_app.command.TextDto;
 import com.example.sentiment_app.command.UserDto;
-import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +37,7 @@ public class UserController {
             List<String> errors = bindingResult.getAllErrors().stream().map(e->e.getDefaultMessage()).toList();
             return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(userServiceImpl.createSentence(id, textDto), HttpStatus.OK);
+        return new ResponseEntity<>(userServiceImpl.createText(id, textDto), HttpStatus.OK);
 
     }
 

@@ -9,12 +9,10 @@ import com.example.sentiment_app.exceptions.ResourceNotFoundException;
 import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.model.User;
 import com.example.sentiment_app.repository.TextRepository;
-import com.example.sentiment_app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.net.http.HttpClient;
-import java.net.http.HttpResponse;
+
 import java.util.List;
 
 @Service
@@ -44,7 +42,7 @@ public class TextServiceImpl implements TextService {
     public TextDto createText(CreateTextDto textDto) {
         text = TextConverter.convertCreateTextDtoToEntity(textDto);
         try {
-            text = apiHandler.APIHandler(textDto.toString());
+            text = apiHandler.APIHandler(text);
         } catch (Exception e) {
             e.printStackTrace();
         }

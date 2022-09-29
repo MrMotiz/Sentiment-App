@@ -1,10 +1,7 @@
 package com.example.sentiment_app.api;
 
-import com.example.sentiment_app.command.TextDto;
 
 import com.example.sentiment_app.model.Text;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -20,15 +17,9 @@ public class ExternalAPI {
 
     private String finalMessage;
 
+    public String postRequest(Text text) throws IOException, InterruptedException {
 
-    public String postRequest(String message) throws IOException, InterruptedException {
-
-        for (String msg : message.split(", ")) {
-            if (msg.contains("sentence=")) {
-                finalMessage = msg.substring(9);
-                break;
-            }
-        }
+        finalMessage = text.getSentence();
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://text-analysis12.p.rapidapi.com/sentiment-analysis/api/v1.1"))

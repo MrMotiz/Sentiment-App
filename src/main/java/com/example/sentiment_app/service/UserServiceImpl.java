@@ -2,7 +2,6 @@ package com.example.sentiment_app.service;
 
 import com.example.sentiment_app.command.*;
 import com.example.sentiment_app.exceptions.ResourceNotFoundException;
-import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.model.User;
 import com.example.sentiment_app.repository.UserRepository;
 import org.springframework.stereotype.Service;
