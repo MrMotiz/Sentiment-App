@@ -15,7 +15,7 @@ Sentiment Analysis is a project using java framework - Spring Boot. This was a g
 week, for the MindSwap bootcamp at Mindera. The main goal of this project is to analyse the different types of sentiments 
 present in a given text using an external API called "Text Sentiment Analysis App". 
 
-![img_5.png](img_5.png)
+![img_5.png](src/main/resources/images/img_5.png)
 
 
 After the user writes his thoughts, the percentage of positive, negative and neutral words 
@@ -38,13 +38,13 @@ In order to use this application, it is necessary to follow the specific order:
 
 - Create a new user account according to the specified parameters (First name, Last name, age, city, gender), which will be stored in the database
 
-![img_6.png](img_6.png)
+![img_6.png](src/main/resources/images/img_6.png)
 
 
 
 - Type your text
 
- ![img_1.png](img_1.png)
+ ![img_1.png](src/main/resources/images/img_1.png)
 
 
 
@@ -52,9 +52,11 @@ In order to use this application, it is necessary to follow the specific order:
 
 ### Features 
 
-- Write a text with no limits of characters
+- Write a text (1000 characters limit)
 - Feel free to write what ever you want 
 - Access to the texts database  
+
+![img.png](src/main/resources/images/img.png)
 
 Future features:
 
