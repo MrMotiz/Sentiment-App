@@ -1,7 +1,5 @@
 package com.example.sentiment_app.model;
 
-import com.example.sentiment_app.command.TextDto;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

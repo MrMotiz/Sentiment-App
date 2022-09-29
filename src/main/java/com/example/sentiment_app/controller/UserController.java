@@ -4,7 +4,6 @@ import com.example.sentiment_app.command.CreateTextDto;
 import com.example.sentiment_app.command.CreateUserDto;
 import com.example.sentiment_app.command.TextDto;
 import com.example.sentiment_app.command.UserDto;
-import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping ("/{id}/text")
-    public ResponseEntity<?> createText(@PathVariable Integer id, @RequestBody CreateTextDto textDto, BindingResult bindingResult) {
+    public ResponseEntity<?> createSentence(@PathVariable Integer id, @RequestBody CreateTextDto textDto, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             List<String> errors = bindingResult.getAllErrors().stream().map(e->e.getDefaultMessage()).toList();
             return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
@@ -43,8 +42,11 @@ public class UserController {
     }
 
     @GetMapping ("/{id}/text")
-    public ResponseEntity<List<TextDto>> findAllTexts(@PathVariable Integer id){
-        return new ResponseEntity<>(userServiceImpl.findALlTexts(id), HttpStatus.OK);
+    public ResponseEntity<List<TextDto>> findAllTextsFromUser(@PathVariable Integer id){
+        if(id==null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(userServiceImpl.findAllTexts(id), HttpStatus.OK);
     }
 
     @GetMapping ("/{id}")

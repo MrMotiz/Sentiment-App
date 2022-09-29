@@ -26,7 +26,6 @@ public class UserConverter {
                 //.sentences(userDto.getSentences().stream().map(TextConverter::convertTextToDtoToEntity).toList())
                 .build();
     }
-
     public static User convertCreateUserDtoToEntity(CreateUserDto createUserDto) {
         return User.builder()
                 .firstName(createUserDto.getFirstName())

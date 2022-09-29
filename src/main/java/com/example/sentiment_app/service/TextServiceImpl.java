@@ -9,20 +9,16 @@ import com.example.sentiment_app.exceptions.ResourceNotFoundException;
 import com.example.sentiment_app.model.Text;
 import com.example.sentiment_app.model.User;
 import com.example.sentiment_app.repository.TextRepository;
-import com.example.sentiment_app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.net.http.HttpClient;
-import java.net.http.HttpResponse;
+
 import java.util.List;
 
 @Service
 public class TextServiceImpl implements TextService {
 
     private TextRepository textRepository;
-
-    private UserRepository userRepository;
 
     private ExternalAPI externalApi;
     @Autowired
@@ -32,21 +28,8 @@ public class TextServiceImpl implements TextService {
     public TextServiceImpl(TextRepository textRepository, ExternalAPI externalApi) {
         this.textRepository = textRepository;
         this.externalApi = externalApi;
-       // this.apiHandler = apiHandler;
 
     }
-
-
-    /*public TextDto createText(CreateTextDto textDto){
-        Text text = TextConverter.convertCreateTextDtoToEntity(textDto);
-        text = textRepository.save(text);
-        HttpResponse<String> response = HttpClient.newHttpClient().send(text.getMessage());
-        return TextConverter.convertToDto(text);
-    }*/
-
-
-
-
 
     @Override
     public Text getTextById(Integer id) {
@@ -56,25 +39,20 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
-    public TextDto createText(CreateTextDto textDto ) {
+    public TextDto createText(CreateTextDto textDto) {
         text = TextConverter.convertCreateTextDtoToEntity(textDto);
         try {
-            text = apiHandler.APIHandler(textDto.toString());
-            //externalApi.postRequest(textDto.toString());
+            text = apiHandler.APIHandler(text);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //text = textRepository.save(text);
         return TextConverter.convertToDto(textRepository.save(text));
     }
 
-
+    @Override
     public List<TextDto> findAllTexts(User user) {
         List<TextDto> text = textRepository.findAll().stream().map(e->TextConverter.convertToDto(e)).toList();
         return text;
-    }
-    public List<Text> findAllText(User user) {
-        return textRepository.findAll();
     }
 
 }

@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Builder
 @Data
@@ -23,5 +21,4 @@ public class CreateTextDto {
     private LocalDate date;
     private String sentiment;
     private User user;
-
 }
